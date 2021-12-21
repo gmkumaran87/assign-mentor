@@ -20,7 +20,7 @@ const changeMentor = async(req, res) => {
 
     // Connecting to the DB
     const db = await dbConnection();
-    const student = await db.collection("students").findOne(ObjectId(studentId));
+    const student = db.collection("students").findOne(ObjectId(studentId));
 
     if (student.mentor) {
         const oldMentorId = student.mentor.mentorId; // Student Old Mentor ID
